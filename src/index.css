@@ -1,0 +1,267 @@
+@import "tailwindcss";
+
+@layer base {
+  html,
+  body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    background-color: #080714;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+}
+
+.font-display {
+  font-family: "Montserrat", system-ui, sans-serif;
+}
+
+.font-ui {
+  font-family: "Inter", system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Keyframes for 60fps Compositor-Only Reel Drops & Gravity Collapse */
+@keyframes zyanReelDropOut {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 140%, 0) scale(0.92);
+    opacity: 0;
+  }
+}
+
+@keyframes zyanReelDropIn {
+  0% {
+    transform: translate3d(0, -520%, 0) scale(0.94);
+    opacity: 0.4;
+  }
+  72% {
+    transform: translate3d(0, 7%, 0) scale(1.03);
+    opacity: 1;
+  }
+  88% {
+    transform: translate3d(0, -2.5%, 0) scale(0.99);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zyanCascadeFall {
+  0% {
+    transform: translate3d(0, var(--zyan-fall-from, -100%), 0);
+  }
+  76% {
+    transform: translate3d(0, 5%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes zyanSymbolWinPulse {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.16) rotate(-2deg);
+  }
+  65% {
+    transform: scale(1.12) rotate(2deg);
+  }
+  100% {
+    transform: scale(1.14) rotate(0deg);
+  }
+}
+
+@keyframes zyanSymbolExplode {
+  0% {
+    transform: scale(1.14);
+    opacity: 1;
+  }
+  45% {
+    transform: scale(1.26);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(0.15);
+    opacity: 0;
+  }
+}
+
+@keyframes zyanFloatCallout {
+  0% {
+    transform: translate3d(-50%, 0, 0) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    transform: translate3d(-50%, -12px, 0) scale(1.12);
+    opacity: 1;
+  }
+  80% {
+    transform: translate3d(-50%, -34px, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(-50%, -52px, 0) scale(0.92);
+    opacity: 0;
+  }
+}
+
+@keyframes zyanBombFuseSpark {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35) rotate(22deg);
+    opacity: 0.75;
+  }
+}
+
+@keyframes zyanBombDetonate {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  40% {
+    transform: scale(1.34);
+    filter: brightness(1.8) drop-shadow(0 0 22px #fbbf24);
+  }
+  100% {
+    transform: scale(1.06);
+    filter: brightness(1.25) drop-shadow(0 0 12px #f59e0b);
+  }
+}
+
+@keyframes zyanScatterLand {
+  0% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1.22) rotate(-4deg);
+    filter: drop-shadow(0 0 18px rgba(236, 72, 153, 0.95));
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes zyanShimmerSweep {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(240%) skewX(-18deg);
+  }
+}
+
+@keyframes zyanHunterShake {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  15% {
+    transform: translate3d(-6px, 4px, 0) rotate(-0.5deg);
+  }
+  30% {
+    transform: translate3d(6px, -5px, 0) rotate(0.5deg);
+  }
+  45% {
+    transform: translate3d(-5px, -3px, 0) rotate(-0.3deg);
+  }
+  60% {
+    transform: translate3d(5px, 4px, 0) rotate(0.3deg);
+  }
+  75% {
+    transform: translate3d(-3px, 2px, 0);
+  }
+}
+
+@keyframes zyanVsExpand {
+  0% {
+    transform: scaleY(0.2);
+    opacity: 0.35;
+  }
+  65% {
+    transform: scaleY(1.03);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zyanDuelFlash {
+  0% {
+    transform: scale(0.5) rotate(-18deg);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.22) rotate(6deg);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.06) rotate(-2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes zyanStickyClank {
+  0% {
+    transform: scale(1.25);
+    filter: brightness(1.6);
+  }
+  55% {
+    transform: scale(0.95);
+    filter: brightness(1.15);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+@keyframes zyanRazorSlice {
+  0% {
+    transform: scaleX(0.2) scaleY(1.25);
+    opacity: 0;
+  }
+  25% {
+    transform: scaleX(1.08) scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+    opacity: 0;
+  }
+}
+
+@keyframes zyanJumpWildHop {
+  0% {
+    transform: translate3d(0, -18px, 0) scale(0.75) rotate(-6deg);
+    opacity: 0.4;
+  }
+  60% {
+    transform: translate3d(0, 4px, 0) scale(1.14) rotate(3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
